@@ -7,7 +7,7 @@ workers_dev = true
 # Then replace the placeholder below with the real namespace ID.
 [[kv_namespaces]]
 binding = "ROUTES"
-id = "c9230d51fb1d4125b975dee4333736d0"
+id = "aece5a62997444f79721d9c642b32516"
 
 [vars]
 ALLOWED_ORIGIN = "*"
