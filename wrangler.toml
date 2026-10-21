@@ -1,7 +1,6 @@
 name = "apiyer"
 main = "src/index.js"
 compatibility_date = "2026-10-21"
-workers_dev = true
 
 # Create this namespace with: npx wrangler kv namespace create ROUTES
 # Then replace the placeholder below with the real namespace ID.
