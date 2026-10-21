@@ -1,0 +1,16 @@
+{
+  "name": "apiyer-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Stable Cloudflare Worker proxy for temporary trycloudflare Quick Tunnel endpoints",
+  "scripts": {
+    "dev": "wrangler dev",
+    "test": "node --test",
+    "check": "node --check src/index.js && node --check examples/register.mjs && node --check examples/proxy-request.mjs && node --check tests/worker.test.js",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
