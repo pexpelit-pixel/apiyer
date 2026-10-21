@@ -1,4 +1,3 @@
-
 const ROUTE_TTL_SECONDS = 3600;
 const MAX_BODY = 16_384;
 const MAX_DEFAULT_PAYLOAD = 8192;
@@ -787,7 +786,14 @@ async function proxy(request, env, url) {
   // Never forward proxy management/client secrets.
   headers.delete("host");
   headers.delete("content-length");
-  headers.delete("x-api-key");
+
+  // FIX: Do NOT strip X-API-Key — backend needs it for its own auth.
+  // Worker only uses X-API-Key for /api/register, /api/unregister,
+  // /api/routes. For /p/:appId/* proxy routes, forward it unchanged
+  // so the backend can validate it (unless clientKeyHash-based auth
+  // is in use, which uses X-Proxy-Client-Key instead).
+  // headers.delete("x-api-key");   ← DIHAPUS
+
   headers.delete("x-proxy-client-key");
 
   // Prevent clients from spoofing forwarding metadata.
